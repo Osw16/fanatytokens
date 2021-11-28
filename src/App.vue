@@ -1,40 +1,23 @@
 <template>
-  <div class="container">
-    <div class="row">
+<div class="flex justify-center">
+  <div class="w-3/4 lg:w-2/4">
 
-      <h1>CoinMarket</h1>
-
-
-    <div>
-      <tr v-for="team in CONMEBOL" :key="team.id">
-        <td>
-          <span>{{team.name}}</span>
-        </td>
-      </tr>
-    </div>
-
-    <table class="table table-hover table-dark text-light">
-        <thead>
-          <tr>
-            <th v-for="(title, index) in titles" :key="index">
-              {{ title }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(team, index) in CONMEBOL" :key="team.id">
-            <td class="text-muted">{{ index  + 1}}</td>
-            <td>
-              <img :src="team.image" :alt="team.name" style="width: 2rem" class="me-2" />
-              <span>
-                {{ team.name }}
+    <h1 class="text-3xl">Conmebol</h1>
+  <div class="carousel">
+    <div class="card" v-for="(team, index) in CONMEBOL" :key="team.id">
+              <span class="m-4 tracking-widest">
+                {{ team.symbol.toUpperCase() }}
               </span>
-              <span class="ms-2 text-muted text-uppercase">
-                {{ team.symbol }}
-              </span>
-            </td>
-            <td>${{ team.current_price.toLocaleString() }}</td>
-            <td
+            <img class="object-contain h-28 w-full mt-2" :src="team.image" :alt="team.name" />
+      <div>
+        <div class="text-center py-1" >
+          <h3 class="text-right text-xl -my-6">{{ index  + 1}}</h3>
+      
+            <h1 class="justify-center max-h-0 pb-10
+             font-bold text-sm mt-7 mb-2">{{ team.name.replace('Fan Token','') }}</h1>
+            <h2 class ="mt-7 text-center font-bold text-blue-600">${{ team.current_price.toLocaleString() }}</h2>
+                <span class="mt-3 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold  text-gray-700 mr-2 mb-2">Ver Más</span>
+            <!-- <div
               :class="[
                 team.price_change_percentage_24h > 0
                   ? 'text-success'
@@ -42,18 +25,83 @@
               ]"
             >
               {{ team.price_change_percentage_24h.toFixed(1)}}%
-            </td>
-            <td>${{ team.total_volume.toLocaleString() }}</td>
-          </tr>
-        </tbody>
-      </table>
-
-
+            </div>
+            <div>${{ team.total_volume.toLocaleString() }}</div> -->
+      
+        </div>
+      </div>
     </div>
+    </div>  <!-- .carousel conmebol -->
+
+    <h1 class="text-3xl text-right">La Liga</h1>
+  <div class="carousel">
+    <div class="card" v-for="(team, index) in LALIGA" :key="team.id">
+              <span class="m-4 tracking-widest">
+                {{ team.symbol.toUpperCase() }}
+              </span>
+            <img class="object-contain h-28 w-full mt-2" :src="team.image" :alt="team.name" />
+      <div>
+        <div class="text-center py-1" >
+          <h3 class="text-right text-xl -my-6">{{ index  + 1}}</h3>
+      
+            <h1 class="justify-center max-h-0 pb-10
+             font-bold text-sm mt-7 mb-2">{{ team.name.replace('Fan Token','') }}</h1>
+            <h2 class ="mt-7 text-center font-bold text-blue-600">${{ team.current_price.toLocaleString() }}</h2>
+                <span class="mt-3 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold  text-gray-700 mr-2 mb-2">Ver Más</span>
+            <!-- <div
+              :class="[
+                team.price_change_percentage_24h > 0
+                  ? 'text-success'
+                  : 'text-danger',
+              ]"
+            >
+              {{ team.price_change_percentage_24h.toFixed(1)}}%
+            </div>
+            <div>${{ team.total_volume.toLocaleString() }}</div> -->
+      
+        </div>
+      </div>
+    </div>
+    </div>  <!-- .carousel la liga -->
+
+    <h1 class="text-3xl">EPL</h1>
+  <div class="carousel">
+    <div class="card" v-for="(team, index) in EPL" :key="team.id">
+              <span class="m-4 tracking-widest">
+                {{ team.symbol.toUpperCase() }}
+              </span>
+            <img class="object-contain h-28 w-full mt-2" :src="team.image" :alt="team.name" />
+      <div>
+        <div class="text-center py-1" >
+          <h3 class="text-right text-xl -my-6">{{ index  + 1}}</h3>
+      
+            <h1 class="justify-center max-h-0 pb-10
+             font-bold text-sm mt-7 mb-2">{{ team.name.replace('Fan Token','') }}</h1>
+            <h2 class ="mt-7 text-center font-bold text-blue-600">${{ team.current_price.toLocaleString() }}</h2>
+                <span class="mt-3 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold  text-gray-700 mr-2 mb-2">Ver Más</span>
+            <!-- <div
+              :class="[
+                team.price_change_percentage_24h > 0
+                  ? 'text-success'
+                  : 'text-danger',
+              ]"
+            >
+              {{ team.price_change_percentage_24h.toFixed(1)}}%
+            </div>
+            <div>${{ team.total_volume.toLocaleString() }}</div> -->
+      
+        </div>
+      </div>
+    </div>
+    </div>  <!-- .carousel EPL -->
+
+   
+  </div>
   </div>
 </template>
 
 <script>
+import './assets/tailwind.css'
 import api from './api'
 export default {
   name: "App",

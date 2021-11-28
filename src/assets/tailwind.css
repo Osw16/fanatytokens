@@ -1,0 +1,31 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.carousel{
+    border:1px solid tomato;
+    display: flex;
+    /* width: 600px; */
+    height: 340px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+.card{
+    border:1px solid tomato;
+    position:relative;
+    scroll-snap-align:center;
+    width:70%;
+    min-width:140px;
+    /* max-width:300px; */
+    height: 280px;
+    margin: 5px 10px 0;
+    padding: 0 15px;
+    background-color:burlywood;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+}
+

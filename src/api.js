@@ -9,6 +9,10 @@ async function getLALIGA_TEAMS(){
     const data = json.filter(team => team.symbol === "bar" || 
     team.symbol ==="atm" || 
     team.symbol ==="lev" || 
+    team.symbol ==="gal" || 
+    team.symbol ==="tra" || 
+    team.symbol ==="FOR" || 
+    team.symbol ==="AM" || 
     team.symbol ==="vcf")
     return data
     
